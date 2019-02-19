@@ -10,16 +10,25 @@ namespace CFT_Task_Mukovnya
     {
         static void Main(string[] args)
         {
+            List<CarDTO> directory = CarsSerializer.Deserialize();
+            
+            Catalog catalog = new Catalog(directory);
+
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
 
-            Catalog.
+            if (catalog.Directory.Count == 0)
+            {
+                catalog.Prefill();
+            }
 
+            catalog.Print();
 
-        }
+            Console.ReadLine();
 
-        static void OnProcessExit(object sender, EventArgs e)
-        {
-            CarsSerializer.Serialize(new List<CarDTO>());
+            void OnProcessExit(object sender, EventArgs e)
+            {
+                CarsSerializer.Serialize(catalog.Directory);
+            }
         }
     }
 }

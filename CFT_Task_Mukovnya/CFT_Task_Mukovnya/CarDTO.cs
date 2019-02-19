@@ -9,27 +9,11 @@ namespace CFT_Task_Mukovnya
     [Serializable]
     class CarDTO
     {
-        public string Manufacturer {
-            get { return Manufacturer; }
-            set
-            {
-                if (value is string && value != null)
-                    Manufacturer = value;
-                else throw new ArgumentException();
-            } }
-        private string Model
-        {
-            get { return Model; }
-            set
-            {
-                if (value is string && value != null)
-                    Model = value;
-                else throw new ArgumentException();
-            }
-        }
-        private BodyType BodyType { get; set; }
-        private CarClass Class { get; set; }
-        private short ProductionYear { get; set; }
+        public string Manufacturer { get; set; }
+        public string Model{ get; set; }
+        public BodyType BodyType { get; set; }
+        public CarClass Class { get; set; }
+        public short ProductionYear { get; set; }
 
         public CarDTO(string man, string model, BodyType type, CarClass carClass, short year)
         {
@@ -38,6 +22,11 @@ namespace CFT_Task_Mukovnya
             BodyType = type;
             Class = carClass;
             ProductionYear = year;
+        }
+        public override string ToString()
+        {
+            return string.Format(" {0,-15}| {1,-12}| {2,-11}| {3,-2}| {4,-5}|", 
+            Manufacturer, Model, BodyType.ToString(), Class.ToString(), ProductionYear);
         }
     }
 }

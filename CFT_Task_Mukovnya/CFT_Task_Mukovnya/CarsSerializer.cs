@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace CFT_Task_Mukovnya
 {
@@ -21,8 +22,15 @@ namespace CFT_Task_Mukovnya
 
         public static List<CarDTO> Deserialize()
         {
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-                return (List<CarDTO>)formatter.Deserialize(fs);
+            try
+            {
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                    return (List<CarDTO>)formatter.Deserialize(fs);
+            }
+            catch (SerializationException)
+            {
+                return new List<CarDTO>();
+            }
         }
     }
 }
