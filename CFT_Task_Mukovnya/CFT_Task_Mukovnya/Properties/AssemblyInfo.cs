@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Sokoban")]
+[assembly: AssemblyTitle("CFT_Task_Mukovnya")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sokoban")]
+[assembly: AssemblyProduct("CFT_Task_Mukovnya")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("2358b977-562a-4980-ad35-17999621c530")]
+[assembly: Guid("24c1a8bb-91a5-4c2f-89c6-d21e4129a42b")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
