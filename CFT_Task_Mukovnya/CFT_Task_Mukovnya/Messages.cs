@@ -14,31 +14,32 @@ If you need some information about commands, enter ""help""
 ";
 
         public static readonly string Help =
-@"There are 4 possible commands:
+@"
+There are 4 possible commands:
 ""add"" for adding a new car to dictionary
 ""delete"" for deleting specified car
 ""edit"" for editing specified car
-""print"" for print the whole dictionary";
+""print"" for print the whole dictionary
+";
 
         public static readonly string Add =
-@"Enter the data. Keep in mind, that brand and model are needed at least";
+@"Enter the data.";
 
         public static readonly string Delete =
 @"Enter an index of recording, which you want to delete";
 
         public static readonly string Edit =
-@"Enter an index of recording, which you want to edit.
-Then enter new data. Keep in mind, that brand and model are needed at least";
+@"Enter an index of recording, which you want to edit. Then enter new data.";
 
         public static readonly string AddError =
 @"Command argumets are incorrect. Usage is: 
-Manufacturer Model (optional)BodyType Class ProductionYear";
+Manufacturer Model BodyType Class ProductionYear";
 
         public static readonly string DeleteError =
 @"There is no car with such index";
 
         public static readonly string EditError =
 @"Command argumets are incorrect. Data must be in format:
-Manufacturer Model (optional)BodyType Class ProductionYear";
+Manufacturer Model BodyType Class ProductionYear";
     }
 }

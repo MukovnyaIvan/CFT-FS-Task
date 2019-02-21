@@ -44,7 +44,7 @@ namespace CFT_Task_Mukovnya
 
         public void Delete(int index)
         {
-            if (!IsInBounds(index))
+            if (IsInBounds(index))
             {
                 Directory.RemoveAt(index);
                 return;
