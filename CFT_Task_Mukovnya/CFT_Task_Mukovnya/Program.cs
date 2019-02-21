@@ -11,7 +11,6 @@ namespace CFT_Task_Mukovnya
         static void Main(string[] args)
         {
             List<CarDTO> directory = CarsSerializer.Deserialize();
-            
             Catalog catalog = new Catalog(directory);
 
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
@@ -39,7 +38,9 @@ namespace CFT_Task_Mukovnya
             switch (command)
             {
                 case "add":
+                    Console.WriteLine(Messages.Add);
                     var newCar = Console.ReadLine();
+
                     try
                     {
                         catalog.Add(Parser.Parse(newCar));
@@ -50,7 +51,9 @@ namespace CFT_Task_Mukovnya
                     }
                     break;
                 case "delete":
+                    Console.WriteLine(Messages.Delete);
                     var deleteIndex = int.Parse(Console.ReadLine());
+
                     try
                     {
                         catalog.Delete(deleteIndex);
@@ -61,20 +64,31 @@ namespace CFT_Task_Mukovnya
                     }
                     break;
                 case "edit":
-                    var editIndex = int.Parse(Console.ReadLine());
+                    Console.WriteLine(Messages.Edit);
+
                     try
                     {
-                        catalog.Replace(editIndex, Parser.Parse(Console.ReadLine()));
+                var editIndex = int.Parse(Console.ReadLine());
+                catalog.Replace(editIndex, Parser.Parse(Console.ReadLine()));
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine(Messages.DeleteError);
                     }
                     catch (Exception)
                     {
                         Console.WriteLine(Messages.EditError);
                     }
+
                     break;
                 case "print":
                     catalog.Print();
                     break;
                 case "help":
+                    Console.WriteLine(Messages.Help);
+                    break;
+
+                default:
                     Console.WriteLine(Messages.Help);
                     break;
             }
