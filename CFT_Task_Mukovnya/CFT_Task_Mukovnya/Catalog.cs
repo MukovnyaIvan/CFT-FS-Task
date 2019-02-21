@@ -37,13 +37,19 @@ namespace CFT_Task_Mukovnya
             if (IsCorrect(car))
             {
                 Directory.Add(car);
+                return;
             }
+            throw new ArgumentException();
         }
 
         public void Delete(int index)
         {
-            if (IsInBounds(index))
+            if (!IsInBounds(index))
+            {
                 Directory.RemoveAt(index);
+                return;
+            }
+            throw new ArgumentException();
         }
 
         public void Replace(int index, CarDTO car)
@@ -51,7 +57,9 @@ namespace CFT_Task_Mukovnya
             if (IsCorrect(car) && IsInBounds(index))
             {
                 Directory[index] = car;
+                return;
             }
+            throw new ArgumentException();
         }
 
         private bool IsCorrect(CarDTO car)

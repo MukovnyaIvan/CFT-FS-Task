@@ -47,6 +47,7 @@
     <Compile Include="CarClass.cs" />
     <Compile Include="CarDTO.cs" />
     <Compile Include="Catalog.cs" />
+    <Compile Include="Messages.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
