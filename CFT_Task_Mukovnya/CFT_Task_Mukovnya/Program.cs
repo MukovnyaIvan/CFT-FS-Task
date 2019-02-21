@@ -23,7 +23,25 @@ namespace CFT_Task_Mukovnya
 
             catalog.Print();
 
-            Console.ReadLine();
+            while (true)
+            {
+                var command = Console.ReadLine();
+                switch (command)
+                {
+                    case "add":
+                        var newCar = Console.ReadLine();
+                        catalog.Add(Parser.Parse(newCar));
+                        break;
+                    case "delete":
+                        var index = int.Parse(Console.ReadLine());
+                        catalog.Delete(index);
+                        break;
+                    case "print":
+                        catalog.Print();
+                        break;
+ 
+                }
+            }
 
             void OnProcessExit(object sender, EventArgs e)
             {

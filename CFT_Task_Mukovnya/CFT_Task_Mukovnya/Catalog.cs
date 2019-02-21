@@ -25,9 +25,11 @@ namespace CFT_Task_Mukovnya
         public void Print()
         {
             for (var i = 0; i < Directory.Count; i++)
-            {
-                Console.WriteLine("| {0} |{1}", i, Directory[i].ToString());
-            }
+                Print(i);
+        }
+        public void Print(int index)
+        {
+            Console.WriteLine("| {0} |{1}", index, Directory[index].ToString());
         }
 
         public void Add(CarDTO car)
