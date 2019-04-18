@@ -11,10 +11,10 @@ import Foundation
 public class Car: Codable {
     
     public enum Property : String {
-        case year
-        case model
         case manufacturer
+        case model
         case bodyType
+        case year
         case `class`
         
         static let allValues: [Property] = [.manufacturer, .model, .bodyType, .year, .class]

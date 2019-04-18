@@ -38,8 +38,13 @@ public class Console {
     
     func printCar(index: Int){
         let car = storage.getCar(index: index)
-        
-        print("\(index) : [\(car[Car.Property.manufacturer]) \(car[.model]) \(car[.bodyType]) \(car[.year]) \(car[.class])]")
+        var result = "\(index) : ["
+        for prop in Car.Property.allValues {
+            result.append("\(prop.rawValue): \(car[prop]) | ")
+        }
+        result.removeLast(2)
+        result.append("]")
+        print(result)
     }
     
     func addCar() {
@@ -89,19 +94,20 @@ public class Console {
             return
         }
         
-        let car = storage.getCar(index: index)
-        
         print("Just press Enter if you want to keep old value")
-        print("Manufacturer: ")
-        car[.manufacturer] = readLine() ?? car[.manufacturer]
-        print("Model: ")
-        car[.model] = readLine() ?? car[.model]
-        print("Body type: ")
-        car[.bodyType] = readLine() ?? car[.bodyType]
-        print("Year: ")
-        car[.year] = readLine() ?? car[.year]
-        print("Class: ")
-        car[.class] = readLine() ?? car[.class]
+        let car = storage.getCar(index: index)
+        for prop in Car.Property.allValues {
+            print("\(prop.rawValue) (old: \(car[prop])): ")
+            if let value = readLine(){
+                if value == ""{
+                    continue
+                }
+                else{
+                    car[prop] = value
+                }
+            }
+        }
+        storage.modify(oldCar: storage.getCar(index: index), newCar: car)
     }
     
     func getIndex(from str: String?) -> Int{
